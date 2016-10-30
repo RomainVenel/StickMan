@@ -25,8 +25,8 @@ import com.stickgame.game.entites.Personnage.Etat;
  */
 public class VueClassique {
 	
-	private static final float CAMERA_WIDTH = 15f;
-	private static final float CAMERA_HEIGHT = 9f;
+	private static final float CAMERA_WIDTH = 800f;
+	private static final float CAMERA_HEIGHT = 640f;
 	private static final float RUNNING_FRAME_DURATION = 0.09f;
 	
 	private Niveau niveau;
@@ -69,8 +69,10 @@ public class VueClassique {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		this.spriteBatch.begin();
-			this.spriteBatch.draw(this.niveau.getFond2(),0,0,645,480);
-			this.dessinerBlocks();
+			//this.spriteBatch.draw(this.niveau.getFond2(),0,0,645,480);
+			this.niveau.getTiledMapRenderer().setView(camera);
+			this.niveau.getTiledMapRenderer().render();
+			//this.dessinerBlocks();
 			this.dessinerPersonnage();
 		this.spriteBatch.end();
 		if(debug){
@@ -81,7 +83,7 @@ public class VueClassique {
 	
 	private void chargerTextures(){
 		
-		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("C:/Users/VENEL/Documents/StickGame/android/assets/Personnage/texturesPersonnage.atlas"));
+		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("C:/Users/VENEL/Documents/StickGame/android/assets/Personnage/Normal/texturesPersonnage.atlas"));
 		
 		personnageInactifLeft = atlas.findRegion("StickMan0");
 		personnageInactifRight = new TextureRegion(personnageInactifLeft);
@@ -108,15 +110,15 @@ public class VueClassique {
 		
 		walkRightAnimation = new Animation(RUNNING_FRAME_DURATION, walkRightFrames);
 		
-		TextureRegion[] attackLeftFrame = new TextureRegion[12];
-		for(int i = 0; i < 12; i++){
-			attackLeftFrame[i] = atlas.findRegion("StickMan - Attack" + i);
+		TextureRegion[] attackLeftFrame = new TextureRegion[6];
+		for(int i = 0; i < 6; i++){
+			attackLeftFrame[i] = atlas.findRegion("StickMan - Katana - Attack" + i);
 		}
 		
 		attackLeftAnimation = new Animation(RUNNING_FRAME_DURATION, attackLeftFrame);
 		
-		TextureRegion[] attackRightFrame = new TextureRegion[12];
-		for(int i = 0; i < 12; i++){
+		TextureRegion[] attackRightFrame = new TextureRegion[6];
+		for(int i = 0; i < 6; i++){
 			attackRightFrame[i] = new TextureRegion(attackLeftFrame[i]);
 			attackRightFrame[i].flip(true, false);
 		}
@@ -161,25 +163,25 @@ public class VueClassique {
 		spriteBatch.draw(personnageFrame, personnage2.getPosition().x * ppuX, personnage2.getPosition().y * ppuY, Personnage.getTaille() * ppuX, Personnage.getTaille() * ppuY);
 	}
 	
-	private void dessinerBlocks(){
-		
-		for(Block block : this.niveau.getBlocksDessinables((int)CAMERA_WIDTH, (int)CAMERA_HEIGHT)){
-			spriteBatch.draw(this.niveau.getTextureBlocks(), block.getPosition().x * ppuX, block.getPosition().y * ppuY, Block.getTaille() * ppuX, Block.getTaille() * ppuY);
-		}
-	}
+//	private void dessinerBlocks(){
+//		
+//		for(Block block : this.niveau.getBlocksDessinables((int)CAMERA_WIDTH, (int)CAMERA_HEIGHT)){
+//			spriteBatch.draw(this.niveau.getTextureBlocks(), block.getPosition().x * ppuX, block.getPosition().y * ppuY, Block.getTaille() * ppuX, Block.getTaille() * ppuY);
+//		}
+//	}
 
 	private void dessinerDebug() {
 
 		this.renduDebug.setProjectionMatrix(camera.combined);
 		this.renduDebug.begin(ShapeType.Line);
 		
-		for(Block block : niveau.getBlocksDessinables( (int)VueClassique.CAMERA_WIDTH, (int)VueClassique.CAMERA_HEIGHT )){
-			
-			Rectangle rectangle = block.getLimites();
-			this.renduDebug.setColor(new Color(0, 1, 0, 1));
-			this.renduDebug.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-			
-		}
+//		for(Block block : niveau.getBlocksDessinables( (int)VueClassique.CAMERA_WIDTH, (int)VueClassique.CAMERA_HEIGHT )){
+//			
+//			Rectangle rectangle = block.getLimites();
+//			this.renduDebug.setColor(new Color(0, 1, 0, 1));
+//			this.renduDebug.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+//			
+//		}
 		
 		Personnage personnage1 = this.niveau.getPersonnage1();
 		Rectangle rectangle1 = personnage1.getLimites();
