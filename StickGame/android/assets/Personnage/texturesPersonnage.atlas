@@ -1,0 +1,279 @@
+
+texturesPersonnage.png
+size: 512,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Katana
+  rotate: false
+  xy: 438, 500
+  size: 22, 58
+  orig: 22, 58
+  offset: 0, 0
+  index: -1
+StickMan - Attack0
+  rotate: false
+  xy: 2, 870
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack1
+  rotate: false
+  xy: 2, 740
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack10
+  rotate: false
+  xy: 2, 350
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack11
+  rotate: false
+  xy: 111, 480
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack2
+  rotate: false
+  xy: 111, 870
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack3
+  rotate: false
+  xy: 2, 610
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack4
+  rotate: false
+  xy: 111, 740
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack5
+  rotate: false
+  xy: 220, 870
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack6
+  rotate: false
+  xy: 2, 480
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack7
+  rotate: false
+  xy: 111, 610
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack8
+  rotate: false
+  xy: 220, 740
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Attack9
+  rotate: false
+  xy: 329, 870
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Immobile
+  rotate: false
+  xy: 238, 8
+  size: 53, 80
+  orig: 53, 80
+  offset: 0, 0
+  index: -1
+StickMan - Katana - Attack0
+  rotate: false
+  xy: 111, 220
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana - Attack1
+  rotate: false
+  xy: 220, 350
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana - Attack2
+  rotate: false
+  xy: 329, 480
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana - Attack3
+  rotate: false
+  xy: 111, 90
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana - Attack4
+  rotate: false
+  xy: 220, 220
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana - Attack5
+  rotate: false
+  xy: 329, 350
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana - Immobile
+  rotate: false
+  xy: 220, 90
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana - Saute
+  rotate: false
+  xy: 329, 220
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana - Tombe
+  rotate: false
+  xy: 329, 90
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana0
+  rotate: false
+  xy: 220, 610
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana1
+  rotate: false
+  xy: 329, 740
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana2
+  rotate: false
+  xy: 2, 220
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana3
+  rotate: false
+  xy: 111, 350
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana4
+  rotate: false
+  xy: 220, 480
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana5
+  rotate: false
+  xy: 329, 610
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Katana6
+  rotate: false
+  xy: 2, 90
+  size: 107, 128
+  orig: 107, 128
+  offset: 0, 0
+  index: -1
+StickMan - Saute
+  rotate: false
+  xy: 179, 2
+  size: 57, 86
+  orig: 57, 86
+  offset: 0, 0
+  index: -1
+StickMan - Tombe
+  rotate: false
+  xy: 438, 560
+  size: 57, 86
+  orig: 57, 86
+  offset: 0, 0
+  index: -1
+StickMan0
+  rotate: false
+  xy: 438, 912
+  size: 57, 86
+  orig: 57, 86
+  offset: 0, 0
+  index: -1
+StickMan1
+  rotate: false
+  xy: 2, 2
+  size: 57, 86
+  orig: 57, 86
+  offset: 0, 0
+  index: -1
+StickMan2
+  rotate: false
+  xy: 438, 824
+  size: 57, 86
+  orig: 57, 86
+  offset: 0, 0
+  index: -1
+StickMan3
+  rotate: false
+  xy: 61, 2
+  size: 57, 86
+  orig: 57, 86
+  offset: 0, 0
+  index: -1
+StickMan4
+  rotate: false
+  xy: 438, 736
+  size: 57, 86
+  orig: 57, 86
+  offset: 0, 0
+  index: -1
+StickMan5
+  rotate: false
+  xy: 120, 2
+  size: 57, 86
+  orig: 57, 86
+  offset: 0, 0
+  index: -1
+StickMan6
+  rotate: false
+  xy: 438, 648
+  size: 57, 86
+  orig: 57, 86
+  offset: 0, 0
+  index: -1
