@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="StickGame/android/src"/>
+	<classpathentry kind="src" path="StickGame/core/src"/>
+	<classpathentry kind="src" path="StickGame/desktop/src"/>
+	<classpathentry kind="src" path="StickGame/ios/src"/>
+	<classpathentry kind="lib" path="StickGame/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="StickGame/android/bin"/>
+</classpath>

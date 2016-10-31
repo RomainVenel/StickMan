@@ -36,12 +36,14 @@ public class Niveau {
 	private Texture fond2;
 	private TextureRegion textureBlocks;
 	
+	private Personnage personnage1;
+	private Personnage personnage2;
+	private Array<Rectangle> rectCollision = new Array<Rectangle>();
+	
 	public Niveau(){
 		
 		Random rand = new Random();
 		int nombre = rand.nextInt(4) +1;
-		
-		System.out.println(nombre);
 		
 		switch (nombre) {
 		case 1:
@@ -59,74 +61,76 @@ public class Niveau {
 		default:
 			break;
 		}
-
-		this.creerNiveau();
 		
 	}
 	
-	private Personnage personnage1;
-	private Personnage personnage2;
-	private Array<Rectangle> rectCollision = new Array<Rectangle>();
-
-	private void creerNiveau(){
+	private void niveau1(){
 		
-		this.personnage1 = new Personnage(new Vector2(1, 2));
-		this.personnage1.setFaceGauche(false);
-		this.personnage2 = new Personnage(new Vector2(8, 2));
-		
-	}
-	
-private void niveau1(){
-		
-		this.tiledMap = new TmxMapLoader().load("C:/Users/VENEL/Documents/StickGame/android/assets/Monde/plaine.tmx");
+		this.tiledMap = new TmxMapLoader().load("C:/StickGame/android/assets/Monde/plaine.tmx");
 		this.tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		
-		musique=Gdx.audio.newMusic(Gdx.files.internal("C:/Users/VENEL/Documents/StickGame/android/assets/Musique/Naruto Shippuden OST III - Waltz of Wind and Fire.mp3"));
+		musique=Gdx.audio.newMusic(Gdx.files.internal("C:/StickGame/android/assets/Musique/Naruto Shippuden OST III - Waltz of Wind and Fire.mp3"));
 		musique.setVolume(0.4f);
 		musique.setLooping(true);
 		musique.play();
+		
+		this.personnage1 = new Personnage(new Vector2(15, 64));
+		this.personnage1.setFaceGauche(false);
+		this.personnage2 = new Personnage(new Vector2(725, 64));
 		
 	}
 	
 	private void niveau2(){
 		
-		this.tiledMap = new TmxMapLoader().load("C:/Users/VENEL/Documents/StickGame/android/assets/Monde/espace.tmx");
+		this.tiledMap = new TmxMapLoader().load("C:/StickGame/android/assets/Monde/espace.tmx");
 		this.tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		
-		musique = Gdx.audio.newMusic(Gdx.files.internal("C:/Users/VENEL/Documents/StickGame/android/assets/Musique/Bleach - Fade To Black B13a.mp3"));
+		musique = Gdx.audio.newMusic(Gdx.files.internal("C:/StickGame/android/assets/Musique/Bleach - Fade To Black B13a.mp3"));
 		musique.setVolume(0.4f);
 		musique.setLooping(true);
 		musique.play();
+		
+		this.personnage1 = new Personnage(new Vector2(15, 256));
+		this.personnage1.setFaceGauche(false);
+		this.personnage2 = new Personnage(new Vector2(725, 64));
 		
 	}
 	
 	private void niveau3(){
 
-		this.tiledMap = new TmxMapLoader().load("C:/Users/VENEL/Documents/StickGame/android/assets/Monde/volcan.tmx");
+		this.tiledMap = new TmxMapLoader().load("C:/StickGame/android/assets/Monde/volcan.tmx");
 		this.tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		
-		musique=Gdx.audio.newMusic(Gdx.files.internal("C:/Users/VENEL/Documents/StickGame/android/assets/Musique/Star Wars - Anakin Vs. Obi-Wan - Battle of the Heroes.mp3"));
+		musique=Gdx.audio.newMusic(Gdx.files.internal("C:/StickGame/android/assets/Musique/Star Wars - Anakin Vs. Obi-Wan - Battle of the Heroes.mp3"));
 		musique.setVolume(0.2f);
 		musique.setLooping(true);
 		musique.play();
+		
+		this.personnage1 = new Personnage(new Vector2(15, 64));
+		this.personnage1.setFaceGauche(false);
+		this.personnage2 = new Personnage(new Vector2(750, 64));
 		
 	}
 	
 	private void niveau4(){
 		
-		this.tiledMap = new TmxMapLoader().load("C:/Users/VENEL/Documents/StickGame/android/assets/Monde/glace.tmx");
+		this.tiledMap = new TmxMapLoader().load("C:/StickGame/android/assets/Monde/glace.tmx");
 		this.tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		
-		musique = Gdx.audio.newMusic(Gdx.files.internal("C:/Users/VENEL/Documents/StickGame/android/assets/Musique/WotLK - Arthas, My Son.mp3"));
+		musique = Gdx.audio.newMusic(Gdx.files.internal("C:/StickGame/android/assets/Musique/WotLK - Arthas, My Son.mp3"));
 		musique.setVolume(0.4f);
 		musique.setLooping(true);
 		musique.play();
+		
+		this.personnage1 = new Personnage(new Vector2(15, 192));
+		this.personnage1.setFaceGauche(false);
+		this.personnage2 = new Personnage(new Vector2(750, 64));
 		
 	}
 	
 	private void niveau5(){
 		
-		musique = Gdx.audio.newMusic(Gdx.files.internal("C:/Users/VENEL/Documents/StickGame/android/assets/Musique/Burning Bright - Star Guardians Login Screen.mp3"));
+		musique = Gdx.audio.newMusic(Gdx.files.internal("C:/StickGame/android/assets/Musique/Burning Bright - Star Guardians Login Screen.mp3"));
 		musique.setVolume(0.4f);
 		musique.setLooping(true);
 		musique.play();

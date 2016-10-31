@@ -13,6 +13,10 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.stickgame.game.entites.Block;
 import com.stickgame.game.entites.Niveau;
@@ -69,10 +73,8 @@ public class VueClassique {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		this.spriteBatch.begin();
-			//this.spriteBatch.draw(this.niveau.getFond2(),0,0,645,480);
 			this.niveau.getTiledMapRenderer().setView(camera);
 			this.niveau.getTiledMapRenderer().render();
-			//this.dessinerBlocks();
 			this.dessinerPersonnage();
 		this.spriteBatch.end();
 		if(debug){
@@ -83,7 +85,7 @@ public class VueClassique {
 	
 	private void chargerTextures(){
 		
-		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("C:/Users/VENEL/Documents/StickGame/android/assets/Personnage/Normal/texturesPersonnage.atlas"));
+		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("C:/StickGame/android/assets/Personnage/Normal/texturesPersonnage.atlas"));
 		
 		personnageInactifLeft = atlas.findRegion("StickMan0");
 		personnageInactifRight = new TextureRegion(personnageInactifLeft);
@@ -175,13 +177,18 @@ public class VueClassique {
 		this.renduDebug.setProjectionMatrix(camera.combined);
 		this.renduDebug.begin(ShapeType.Line);
 		
-//		for(Block block : niveau.getBlocksDessinables( (int)VueClassique.CAMERA_WIDTH, (int)VueClassique.CAMERA_HEIGHT )){
-//			
-//			Rectangle rectangle = block.getLimites();
-//			this.renduDebug.setColor(new Color(0, 1, 0, 1));
-//			this.renduDebug.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-//			
-//		}
+		MapLayer collisionObjectLayer = this.niveau.getTiledMap().getLayers().get("collision");
+		MapObjects objects = collisionObjectLayer.getObjects();
+		
+		for(RectangleMapObject rectangleMapObject : objects.getByType(RectangleMapObject.class)){
+			if(rectangleMapObject.getProperties().containsKey("block")){
+				
+				Rectangle rectangle = rectangleMapObject.getRectangle();
+				this.renduDebug.setColor(new Color(0, 1, 0, 1));
+				this.renduDebug.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+				
+			}
+		}
 		
 		Personnage personnage1 = this.niveau.getPersonnage1();
 		Rectangle rectangle1 = personnage1.getLimites();

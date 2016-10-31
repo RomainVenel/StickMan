@@ -6,10 +6,11 @@ package com.stickgame.game.controleurs;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pool;
-import com.stickgame.game.entites.Block;
 import com.stickgame.game.entites.Niveau;
 import com.stickgame.game.entites.Personnage;
 import com.stickgame.game.entites.Personnage.Etat;
@@ -25,11 +26,11 @@ public class ControleurPersonnage {
 	}
 	
 	private static final long LONG_JUMP_PRESS = 150l;
-	private static final float ACCELERATION = 20f;
-	private static final float GRAVITY = -20f;
-	private static final float MAX_JUMP_SPEED = 7f;
-	private static final float DAMP = 0.90f;
-	private static final float MAX_VEL = 4f;
+	private static final float ACCELERATION = 150f;
+	private static final float GRAVITY = -50f;
+	private static final float MAX_JUMP_SPEED = 70f;
+	private static final float DAMP = 0.9f;
+	private static final float MAX_VEL = 40f;
 	
 	private Niveau niveau;
 	private Personnage personnage1;
@@ -42,8 +43,6 @@ public class ControleurPersonnage {
 			return new Rectangle();
 		}
 	};
-	
-	private Array<Block> collidable = new Array<Block>();
 	
 	private static Map<Keys, Boolean> keys = new HashMap<ControleurPersonnage.Keys, Boolean>();
 	
@@ -206,85 +205,43 @@ public class ControleurPersonnage {
 		this.personnage1.getVelocite().scl(delta);
 		
 		Rectangle persoRect = rectPool.obtain();
-		
 		persoRect.set(this.personnage1.getLimites().x, this.personnage1.getLimites().y, this.personnage1.getLimites().width, this.personnage1.getLimites().height);
 		
-		int startX, endX;
-		
-		int startY = (int)this.personnage1.getLimites().y;
-		
-		int endY = (int)(this.personnage1.getLimites().y + this.personnage1.getLimites().height);
-		
-		if(this.personnage1.getVelocite().x < 0){
-			
-			startX = endX = (int)Math.floor(this.personnage1 .getLimites().x + this.personnage1.getVelocite().x);
-			
-		} else{
-			
-			startX = endX = (int)Math.floor(this.personnage1.getLimites().x + this.personnage1.getLimites().width + this.personnage1.getVelocite().x);
-			
-		}
-		
-		populateCollidableBlocks(startX, startY, endX, endY);
-		
-		persoRect.x += this.personnage1.getVelocite().x;
+		MapLayer collisionObjectLayer = this.niveau.getTiledMap().getLayers().get("collision");
+		MapObjects objects = collisionObjectLayer.getObjects();
 		
 		this.niveau.getRectCollision().clear();
 		
-		for(Block block : collidable){
-			if(block == null){
-				
-				continue;
-				
-			}
-			
-			if(persoRect.overlaps(block.getLimites())){
-				
-				this.personnage1.getVelocite().x = 0;
-				this.niveau.getRectCollision().add(block.getLimites());
-				break;
-				
+		for(RectangleMapObject rectangleMapObject : objects.getByType(RectangleMapObject.class)){
+			if(rectangleMapObject.getProperties().containsKey("block")){
+				if(persoRect.overlaps(rectangleMapObject.getRectangle())){
+					this.personnage1.getVelocite().x = 0;
+					this.niveau.getRectCollision().add(rectangleMapObject.getRectangle());
+					break;
+					
+				}
 			}
 		}
 		
 		persoRect.x = this.personnage1.getPosition().x;
 		
-		startX = (int)this.personnage1.getLimites().x;
-		endX = (int)(this.personnage1.getLimites().x + this.personnage1.getLimites().width);
-		
-		if(this.personnage1.getVelocite().y < 0){
-			
-			startY = endY = (int)Math.floor(this.personnage1.getLimites().y + this.personnage1.getVelocite().y);
-			
-		} else{
-			
-			startY = endY = (int)Math.floor(this.personnage1.getLimites().y + this.personnage1.getLimites().height + this.personnage1.getVelocite().y);
-			
-		}
-		
-		populateCollidableBlocks(startX, startY, endX, endY);
-		
 		persoRect.y += this.personnage1.getVelocite().y;
 		
-		for(Block block : collidable){
+		for(RectangleMapObject rectangleMapObject : objects.getByType(RectangleMapObject.class)){
 			
-			if(block == null){
+			if(rectangleMapObject.getProperties().containsKey("block")){
+				if(persoRect.overlaps(rectangleMapObject.getRectangle())){
 				
-				continue;
-				
-			}
-			
-			if(persoRect.overlaps(block.getLimites())){
-				
-				if(this.personnage1.getVelocite().y < 0){
+					if(this.personnage1.getVelocite().y < 0){
+						
+						grounded = true;
+						
+					}
 					
-					grounded = true;
-					
+					this.personnage1.getVelocite().y = 0;
+					this.niveau.getRectCollision().add(rectangleMapObject.getRectangle());
+					break;
 				}
-				
-				this.personnage1.getVelocite().y = 0;
-				this.niveau.getRectCollision().add(block.getLimites());
-				break;
 				
 			}
 			
@@ -296,26 +253,6 @@ public class ControleurPersonnage {
 		this.personnage1.getLimites().y = this.personnage1.getPosition().y;
 		this.personnage1.getVelocite().scl(1 / delta);
 		
-	}
-	
-	private void populateCollidableBlocks(int startX, int startY, int endX, int endY){
-		
-		collidable.clear();
-		for(int x = startX; x <= endX; x++){
-			
-			for(int y = startY; y <= endY; y++){
-				
-				if(x >= 0 && x < this.niveau.getWidth() && y >= 0 && y < this.niveau.getHeight()){
-					
-					collidable.add(niveau.get(x, y));
-					
-				}
-				
-			}
-			
-		}
-		
-	}
-	
+	}	
 
 }

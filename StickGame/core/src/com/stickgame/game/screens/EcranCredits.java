@@ -42,8 +42,8 @@ public class EcranCredits implements Screen{
 	
 	public EcranCredits(){
 		
-		this.atlas = new TextureAtlas("C:/Users/VENEL/Documents/StickGame/android/assets/UI/uiskin.atlas");
-		this.skin = new Skin(Gdx.files.internal("C:/Users/VENEL/Documents/StickGame/android/assets/UI/uiskin.json"), atlas);
+		this.atlas = new TextureAtlas("C:/StickGame/android/assets/UI/uiskin.atlas");
+		this.skin = new Skin(Gdx.files.internal("C:/StickGame/android/assets/UI/uiskin.json"), atlas);
 		this.spriteBatch = new SpriteBatch();
 		this.camera = new OrthographicCamera();
 		this.viewport = new StretchViewport(450, 450, camera);
@@ -63,7 +63,7 @@ public class EcranCredits implements Screen{
 		mainTable.setFillParent(true);
 		mainTable.center();
 		
-		musique=Gdx.audio.newMusic(Gdx.files.internal("C:/Users/VENEL/Documents/StickGame/android/assets/Musique/ROB (Maniac soundtrack) - Haunted.mp3"));
+		musique=Gdx.audio.newMusic(Gdx.files.internal("C:/StickGame/android/assets/Musique/ROB (Maniac soundtrack) - Haunted.mp3"));
 		musique.setVolume(0.2f);
 		musique.setLooping(true);
 		musique.play();

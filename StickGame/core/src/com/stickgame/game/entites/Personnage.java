@@ -15,7 +15,7 @@ public class Personnage {
 	
 	private static final float VITESSE = 4f; //Unité de déplacement par seconde
 	private static final float JUMP_VELOCITY = 1f; //Unité de déplacement en sautant
-	private static final float TAILLE = 32f; //Taille du personnage
+	private static final float TAILLE = 64f; //Taille du personnage
 	
 	private float stateTime = 0;
 	

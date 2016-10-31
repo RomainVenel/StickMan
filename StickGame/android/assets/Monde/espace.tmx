@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="32" tileheight="32" nextobjectid="26">
  <tileset firstgid="1" name="espace" tilewidth="32" tileheight="32" tilecount="350" columns="25">
-  <image source="../Monde/Espace/espace.png" width="800" height="450"/>
+  <image source="Espace/espace.png" width="800" height="450"/>
  </tileset>
  <tileset firstgid="351" name="stoneMid" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Espace/stoneMid.png" width="70" height="70"/>
+  <image source="Espace/stoneMid.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="355" name="rockHillRight" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Espace/rockHillRight.png" width="70" height="70"/>
+  <image source="Espace/rockHillRight.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="359" name="stoneCliffLeftAlt" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Espace/stoneCliffLeftAlt.png" width="70" height="70"/>
+  <image source="Espace/stoneCliffLeftAlt.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="363" name="stoneCenter" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Espace/stoneCenter.png" width="70" height="70"/>
+  <image source="Espace/stoneCenter.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="367" name="stoneHalfLeft" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Espace/stoneHalfLeft.png" width="70" height="70"/>
+  <image source="Espace/stoneHalfLeft.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="371" name="stoneHillRight2" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Espace/stoneHillRight2.png" width="70" height="70"/>
+  <image source="Espace/stoneHillRight2.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="375" name="stoneCliffLeft" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Espace/stoneCliffLeft.png" width="70" height="70"/>
+  <image source="Espace/stoneCliffLeft.png" width="70" height="70"/>
  </tileset>
  <layer name="fond" width="25" height="20">
   <data encoding="csv">
@@ -72,4 +72,61 @@
 0,0,0,0,0,0,366,365,366,365,366,365,366,373,374,353,354,353,354,353,354,353,354,353,354
 </data>
  </layer>
+ <objectgroup name="collision">
+  <object id="10" name="block1" x="-0.666667" y="224.667" width="159.333" height="39.3333">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="11" name="block2" x="-0.666667" y="384" width="128.667" height="39.3333">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="12" name="block3" x="256" y="352.667" width="128" height="39.3333">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="13" name="block4" x="507.333" y="256" width="292" height="64">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="15" name="block5" x="192" y="575.333" width="607.333" height="70">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="16" name="block6" x="415.333" y="512.333" width="90.6667" height="90.1225" rotation="45">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="17" name="block7" x="192.075" y="512.441" width="223.999" height="62.5913" rotation="0.134893">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="20" name="block8" x="158.727" y="511.818" width="33.2727" height="32">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="21" name="block9" x="185.328" y="530.776" width="24.5799" height="16.9091" rotation="41.8991">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="23" name="block10" x="480.667" y="256" width="26.6667" height="39.6667">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="24" name="block11" x="501.185" y="271.488" width="36.2544" height="32.1714" rotation="40.7941">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

@@ -6,16 +6,17 @@ package com.stickgame.game.controleurs;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pool;
-import com.stickgame.game.entites.Block;
 import com.stickgame.game.entites.Niveau;
 import com.stickgame.game.entites.Personnage;
 import com.stickgame.game.entites.Personnage.Etat;
 
 /**
- * @author maxime
+ * @author Romain Venel & Maxime Genevier
  *
  */
 public class ControleurPersonnage2 {
@@ -42,8 +43,6 @@ public class ControleurPersonnage2 {
 			return new Rectangle();
 		}
 	};
-	
-	private Array<Block> collidable = new Array<Block>();
 	
 	private static Map<Keys, Boolean> keys = new HashMap<ControleurPersonnage2.Keys, Boolean>();
 	
@@ -208,82 +207,39 @@ public class ControleurPersonnage2 {
 		
 		persoRect.set(this.personnage2.getLimites().x, this.personnage2.getLimites().y, this.personnage2.getLimites().width, this.personnage2.getLimites().height);
 		
-		int startX, endX;
+		MapLayer collisionObjectLayer = this.niveau.getTiledMap().getLayers().get("collision");
+		MapObjects objects = collisionObjectLayer.getObjects();
 		
-		int startY = (int)this.personnage2.getLimites().y;
-		
-		int endY = (int)(this.personnage2.getLimites().y + this.personnage2.getLimites().height);
-		
-		if(this.personnage2.getVelocite().x < 0){
-			
-			startX = endX = (int)Math.floor(this.personnage2 .getLimites().x + this.personnage2.getVelocite().x);
-			
-		} else{
-			
-			startX = endX = (int)Math.floor(this.personnage2.getLimites().x + this.personnage2.getLimites().width + this.personnage2.getVelocite().x);
-			
-		}
-		
-		populateCollidableBlocks(startX, startY, endX, endY);
-		
-		persoRect.x += this.personnage2.getVelocite().x;
-		
-		this.niveau.getRectCollision().clear();
-		
-		for(Block block : collidable){
-			if(block == null){
-				
-				continue;
-				
-			}
-			
-			if(persoRect.overlaps(block.getLimites())){
-				
-				this.personnage2.getVelocite().x = 0;
-				this.niveau.getRectCollision().add(block.getLimites());
-				break;
-				
+		for(RectangleMapObject rectangleMapObject : objects.getByType(RectangleMapObject.class)){
+			if(rectangleMapObject.getProperties().containsKey("block")){
+				if(persoRect.overlaps(rectangleMapObject.getRectangle())){
+					this.personnage2.getVelocite().x = 0;
+					this.niveau.getRectCollision().add(rectangleMapObject.getRectangle());
+					break;
+					
+				}
 			}
 		}
 		
 		persoRect.x = this.personnage2.getPosition().x;
 		
-		startX = (int)this.personnage2.getLimites().x;
-		endX = (int)(this.personnage2.getLimites().x + this.personnage2.getLimites().width);
-		
-		if(this.personnage2.getVelocite().y < 0){
-			
-			startY = endY = (int)Math.floor(this.personnage2.getLimites().y + this.personnage2.getVelocite().y);
-			
-		} else{
-			
-			startY = endY = (int)Math.floor(this.personnage2.getLimites().y + this.personnage2.getLimites().height + this.personnage2.getVelocite().y);
-			
-		}
-		
-		populateCollidableBlocks(startX, startY, endX, endY);
-		
 		persoRect.y += this.personnage2.getVelocite().y;
 		
-		for(Block block : collidable){
+		for(RectangleMapObject rectangleMapObject : objects.getByType(RectangleMapObject.class)){
 			
-			if(block == null){
+			if(rectangleMapObject.getProperties().containsKey("block")){
+				if(persoRect.overlaps(rectangleMapObject.getRectangle())){
 				
-				continue;
-				
-			}
-			
-			if(persoRect.overlaps(block.getLimites())){
-				
-				if(this.personnage2.getVelocite().y < 0){
+					if(this.personnage2.getVelocite().y < 0){
+						
+						grounded = true;
+						
+					}
 					
-					grounded = true;
-					
+					this.personnage2.getVelocite().y = 0;
+					this.niveau.getRectCollision().add(rectangleMapObject.getRectangle());
+					break;
 				}
-				
-				this.personnage2.getVelocite().y = 0;
-				this.niveau.getRectCollision().add(block.getLimites());
-				break;
 				
 			}
 			
@@ -294,25 +250,6 @@ public class ControleurPersonnage2 {
 		this.personnage2.getLimites().x = this.personnage2.getPosition().x;
 		this.personnage2.getLimites().y = this.personnage2.getPosition().y;
 		this.personnage2.getVelocite().scl(1 / delta);
-		
-	}
-	
-	private void populateCollidableBlocks(int startX, int startY, int endX, int endY){
-		
-		collidable.clear();
-		for(int x = startX; x <= endX; x++){
-			
-			for(int y = startY; y <= endY; y++){
-				
-				if(x >= 0 && x < this.niveau.getWidth() && y >= 0 && y < this.niveau.getHeight()){
-					
-					collidable.add(niveau.get(x, y));
-					
-				}
-				
-			}
-			
-		}
 		
 	}
 

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="32" tileheight="32" nextobjectid="35">
  <tileset firstgid="1" name="glace" tilewidth="32" tileheight="32" tilecount="350" columns="25">
-  <image source="../Monde/Glace/glace.png" width="800" height="449"/>
+  <image source="Glace/glace.png" width="800" height="449"/>
  </tileset>
  <tileset firstgid="351" name="snowMid" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Glace/snowMid.png" width="70" height="70"/>
+  <image source="Glace/snowMid.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="355" name="snowLeft" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Glace/snowLeft.png" width="70" height="70"/>
+  <image source="Glace/snowLeft.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="359" name="liquidWaterTop_mid" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Glace/liquidWaterTop_mid.png" width="70" height="70"/>
+  <image source="Glace/liquidWaterTop_mid.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="363" name="snowHalfMid" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Glace/snowHalfMid.png" width="70" height="70"/>
+  <image source="Glace/snowHalfMid.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="367" name="snowHalfLeft" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Glace/snowHalfLeft.png" width="70" height="70"/>
+  <image source="Glace/snowHalfLeft.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="371" name="snowCliffRight" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Glace/snowCliffRight.png" width="70" height="70"/>
+  <image source="Glace/snowCliffRight.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="375" name="snowCliffLeftAlt" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Glace/snowCliffLeftAlt.png" width="70" height="70"/>
+  <image source="Glace/snowCliffLeftAlt.png" width="70" height="70"/>
  </tileset>
  <layer name="fond" width="25" height="20">
   <data encoding="csv">
@@ -72,4 +72,56 @@
 362,361,362,361,362,361,362,361,362,361,362,361,362,361,362,361,362,361,362,357,358,353,354,353,354
 </data>
  </layer>
+ <objectgroup name="collision">
+  <object id="23" name="block1" x="0" y="447.5" width="223.5" height="40">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="24" name="block2" x="320.5" y="448.5" width="223.5" height="39">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="27" name="block3" x="607" y="576" width="194" height="65">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="28" name="block4" x="631" y="320" width="168.333" height="63.6667">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="29" name="block5" x="608.333" y="320.333" width="22.6667" height="48">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="30" name="block6" x="616.106" y="357.799" width="27.3792" height="12.8817" rotation="34.1758">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="31" name="block7" x="128.667" y="224" width="384" height="32">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="32" name="block8" x="160.667" y="255.667" width="319" height="32">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="33" name="block9" x="466.344" y="256.683" width="21.2147" height="20.7101" rotation="-43.7289">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="34" name="block10" x="140.917" y="255.403" width="18.8275" height="24.4452" rotation="-50.1801">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

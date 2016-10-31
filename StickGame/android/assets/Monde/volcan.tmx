@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="32" tileheight="32" nextobjectid="23">
  <tileset firstgid="1" name="volcan" tilewidth="32" tileheight="32" tilecount="400" columns="25">
-  <image source="../Monde/Volcan/volcan.png" width="800" height="533"/>
+  <image source="Volcan/volcan.png" width="800" height="533"/>
  </tileset>
  <tileset firstgid="401" name="castleMid" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Volcan/castleMid.png" width="70" height="70"/>
+  <properties>
+   <property name="block" value=""/>
+  </properties>
+  <image source="Volcan/castleMid.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="405" name="castleLeft" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Volcan/castleLeft.png" width="70" height="70"/>
+  <properties>
+   <property name="block" value=""/>
+  </properties>
+  <image source="Volcan/castleLeft.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="409" name="liquidLavaTop_mid" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Volcan/liquidLavaTop_mid.png" width="70" height="70"/>
+  <properties>
+   <property name="brule" value=""/>
+  </properties>
+  <image source="Volcan/liquidLavaTop_mid.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="413" name="castleHalfMid" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Volcan/castleHalfMid.png" width="70" height="70"/>
+  <properties>
+   <property name="block" value=""/>
+  </properties>
+  <image source="Volcan/castleHalfMid.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="417" name="castleHalfLeft" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Volcan/castleHalfLeft.png" width="70" height="70"/>
+  <properties>
+   <property name="block" value=""/>
+  </properties>
+  <image source="Volcan/castleHalfLeft.png" width="70" height="70"/>
  </tileset>
  <tileset firstgid="421" name="castleCliffLeft" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../Monde/Volcan/castleCliffLeft.png" width="70" height="70"/>
+  <properties>
+   <property name="block" value=""/>
+  </properties>
+  <image source="Volcan/castleCliffLeft.png" width="70" height="70"/>
  </tileset>
  <layer name="fond" width="25" height="20">
   <data encoding="csv">
@@ -69,4 +87,56 @@
 403,404,403,404,403,404,2147484056,2147484055,412,411,412,411,412,411,412,407,408,403,404,403,404,403,404,403,404
 </data>
  </layer>
+ <objectgroup name="collision">
+  <object id="11" name="block1" x="1.33333" y="320" width="137.333" height="64">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="12" name="block2" x="139.333" y="320" width="21.3333" height="42.6667">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="13" name="block3" x="140.342" y="377.817" width="23.8065" height="20.3672" rotation="-133.02">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="15" name="block4" x="288" y="223.333" width="160" height="41.3333">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="16" name="block5" x="600.333" y="319.333" width="199.667" height="64.6667">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="17" name="block6" x="576" y="319.333" width="24.3333" height="41">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="18" name="block7" x="590.89" y="344.53" width="33.9679" height="21.9051" rotation="-316.489">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="19" name="block8" x="224" y="447.833" width="288" height="39.3333">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="21" name="block9" x="1.33333" y="575.333" width="254" height="64.6667">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+  <object id="22" name="block10" x="479.333" y="576" width="320.667" height="64">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

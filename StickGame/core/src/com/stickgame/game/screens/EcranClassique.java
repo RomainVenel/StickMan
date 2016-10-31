@@ -29,7 +29,6 @@ public class EcranClassique implements Screen, InputProcessor{
 	private VueClassique vueClassique;
 	private ControleurPersonnage controleur;
 	private ControleurPersonnage2 controleur2;
-	private Music musique;
 	
 	
 	@Override
