@@ -26,9 +26,9 @@ public class ControleurPersonnage {
 	}
 	
 	private static final long LONG_JUMP_PRESS = 150l;
-	private static final float ACCELERATION = 150f;
-	private static final float GRAVITY = -50f;
-	private static final float MAX_JUMP_SPEED = 70f;
+	private static final float ACCELERATION = 3000f;
+	private static final float GRAVITY = -80f;
+	private static final float MAX_JUMP_SPEED = 120f;
 	private static final float DAMP = 0.9f;
 	private static final float MAX_VEL = 40f;
 	
